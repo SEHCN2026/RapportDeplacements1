@@ -4,7 +4,7 @@
 
 const parametresCourriel = {
 
-    destinataireInterne: "xavier@sehcn.com",
+    destinataireInterne: "info@sehcn.com",
 
     objet: "Rapport de déplacements — [Nom] — [DateRapport] — [NatureActivite]",
 
