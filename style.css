@@ -1,0 +1,1004 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #eef1f5;
+    margin: 0;
+    padding: 30px;
+    color: #222;
+}
+
+.formulaire {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #d5dbe3;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+/* Champs */
+
+section > div {
+    margin-bottom: 6px;
+}
+
+label {
+    display: block;
+    font-weight: normal;
+    margin-bottom: 3px;
+    margin-left: 10px;
+    font-size: 15px;
+    line-height: 20px;
+    align-self: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 7px 9px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Champs de date et d'heure */
+
+input[type="date"],
+input[type="time"] {
+    max-width: 250px;
+}
+
+/* Organisation des journées */
+
+section h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Grille pour les champs d'une journée */
+
+section:has(h2) > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 20px;
+}
+
+section:has(h2) > h3 {
+    grid-column: 1 / -1;
+}
+
+/* Les champs qui prennent toute la largeur */
+
+section:has(h2) > div:last-child {
+    grid-column: 1 / -1;
+}
+
+/* Cases à cocher */
+
+section:has(h2) input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0 8px 0 0;
+    vertical-align: middle;
+}
+
+section:has(h2) label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 0;
+    min-height: 28px;
+}
+
+/* Bouton Ajouter une journée */
+
+#ajouterJournee {
+    display: block;
+    margin: 20px 0 30px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ================================
+   RÉCAPITULATIF DE LA JOURNÉE
+================================ */
+
+.recapitulatif-journee {
+    display: block !important;
+    grid-column: 1 / -1;
+    margin-top: 25px;
+    padding: 20px;
+    border: 1px solid #c8d0da;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.recapitulatif-journee h3 {
+    margin: 0 -20px 15px;
+    padding: 10px 20px;
+    border-left: none;
+    border-bottom: 1px solid #e1e5ea;
+    background-color: #eef1f5;
+    border-radius: 7px 7px 0 0;
+    font-size: 19px;
+    font-weight: 600;
+    color: #354352;
+}
+
+.recapitulatif-journee > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.recapitulatif-journee > div:last-child {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 2px solid #ccc;
+    font-size: 18px;
+}
+
+/* ================================
+   SÉLECTEUR D'HEURE
+================================ */
+
+.selecteur-heure {
+    display: flex;
+    gap: 10px;
+}
+
+.selecteur-heure select {
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+}
+
+.selecteur-heure select:first-child {
+    width: 120px;
+}
+
+.selecteur-heure select:last-child {
+    width: 120px;
+}
+
+/* ================================
+   SECTIONS DU FORMULAIRE
+================================ */
+
+section {
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: #f8f9fa;
+}
+
+section h2 {
+    margin: -20px -20px 18px -20px;
+    padding: 12px 20px;
+    background-color: #354352;
+    color: white;
+    border-radius: 8px 8px 0 0;
+    font-size: 21px;
+    font-weight: 600;
+}
+
+/* ================================
+   GRANDES SOUS-SECTIONS
+================================ */
+
+section h3 {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    padding: 4px 10px;
+    border-left: 4px solid #7f8c9a;
+    background-color: transparent;
+    font-size: 19px;
+    font-weight: 600;
+    color: #354352;
+}
+
+/* ================================
+   SOUS-SECTIONS DES TRANSPORTS
+================================ */
+
+section h4 {
+    grid-column: 1 / -1;
+    margin-top: 22px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #354352;
+}
+
+/* ================================
+   SECTIONS DES JOURNÉES
+================================ */
+
+#conteneurJournees section {
+    border-color: #c8d0da;
+    background-color: #f5f6f8;
+}
+
+#conteneurJournees section h2 {
+    color: white;
+    border-bottom-color: transparent;
+}
+
+/* ================================
+   TOTAUX
+================================ */
+
+section > div > strong {
+    font-weight: 600;
+}
+
+section > div > strong + span {
+    font-weight: 600;
+}
+
+/* ================================
+   SOUS-SECTIONS ENCADRÉES
+================================ */
+
+.sous-section {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 20px;
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+    padding: 0 14px 12px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+/* Titre de la sous-section */
+
+.sous-section h4 {
+    grid-column: 1 / -1;
+    margin: 0 -14px 8px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #e1e5ea;
+    background-color: #eef1f5;
+    border-radius: 7px 7px 0 0;
+}
+
+/* Chaque ligne : intitulé à gauche, champ à droite */
+
+.sous-section > div:not(.total-sous-section) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+/* Total de la sous-section */
+
+.sous-section .total-sous-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1 / -1;
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding-top: 10px;
+    border-top: 1px solid #e1e5ea;
+}
+
+.sous-section .total-sous-section strong,
+.sous-section .total-sous-section span {
+    font-weight: 600;
+    color: #354352;
+}
+
+/* Retirer les flèches des champs numériques */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* ================================
+   DATE ET HEURE
+================================ */
+
+.date-heure-ligne {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 20px;
+    margin-bottom: 6px;
+}
+
+.date-heure-ligne > label {
+    margin-left: 10px;
+    align-self: center;
+}
+
+.date-heure-champs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.date-heure-champs input {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+/* ================================
+   CHOIX DES REPAS
+================================ */
+
+.sous-section .repas-options {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    grid-template-rows: 1fr;
+    gap: 10px 20px;
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0;
+}
+
+.sous-section .repas-options > div {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 !important;
+    padding: 0;
+    min-width: 0;
+}
+
+.sous-section .repas-options label {
+    display: block;
+    width: 100%;
+    margin: 0 0 4px 0 !important;
+    text-align: center;
+    font-weight: 600;
+}
+
+.sous-section .repas-options span {
+    display: block;
+    margin: 0 0 8px 0;
+    text-align: center;
+}
+
+.sous-section .repas-options input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0 !important;
+}
+
+/* LIGNE HÔTEL */
+.sous-section .hebergement-options > div:first-child {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+}
+
+/* HÉBERGEMENT */
+.sous-section .hebergement-options {
+    display: block !important;
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.sous-section .hebergement-options > div {
+    margin-bottom: 8px !important;
+}
+
+/* Ligne Hôtel */
+.sous-section .hebergement-options > div:first-child {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.sous-section .hebergement-options > div:first-child label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.sous-section .hebergement-options > div:first-child input[type="number"] {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Ligne Chez des proches */
+.sous-section .hebergement-options > div:last-child {
+    display: block !important;
+    margin-left: 10px;
+}
+
+.sous-section .hebergement-options > div:last-child label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* MONTANT CHEZ DES PROCHES */
+.sous-section .hebergement-options > div:last-child {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.sous-section .hebergement-options .montant-proches {
+    margin-left: auto;
+    margin-right: 0;
+    color: #aaa;
+}
+
+/* ================================
+   TOTAL DU RAPPORT
+================================ */
+
+.total-rapport {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #d5dbe0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+
+.total-rapport h2 {
+    margin: -20px -20px 18px -20px;
+    padding: 12px 20px;
+    background-color: #354352;
+    color: white;
+    border-radius: 8px 8px 0 0;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+
+.total-rapport > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+}
+
+
+.total-rapport strong {
+    color: #354352;
+}
+
+
+.total-rapport span {
+    font-weight: 500;
+    text-align: right;
+    white-space: nowrap;
+}
+
+
+/* TOTAL GÉNÉRAL */
+
+.total-rapport > div:last-child {
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid #d5dbe0;
+    font-size: 17px;
+}
+
+
+.total-rapport > div:last-child strong,
+.total-rapport > div:last-child span {
+    font-weight: 700;
+}
+
+/* ================================
+   PIÈCES JUSTIFICATIVES
+================================ */
+
+.pieces-justificatives {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #d5dbe0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+
+.pieces-justificatives h2 {
+    margin: -20px -20px 18px -20px;
+    padding: 12px 20px;
+    background-color: #354352;
+    color: white;
+    border-radius: 8px 8px 0 0;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+
+.pieces-justificatives > label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #354352;
+}
+
+
+.pieces-justificatives input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+#listePiecesJustificatives {
+    margin-top: 15px;
+}
+
+
+.piece-justificative {
+    display: grid;
+    grid-template-columns: 1fr 300px 300px;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 0;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+
+.nom-piece {
+    color: #354352;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+
+.categorie-piece,
+.journee-piece {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 8px 10px;
+}
+
+.pieces-justificatives input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    color: #354352;
+}
+
+
+.bouton-fichiers {
+    display: inline-block;
+    position: relative;
+    font-family: inherit;
+    font-size: inherit;
+    color: #354352;
+    background-color: white;
+    border: 1px solid #c8cfd5;
+    border-radius: 5px;
+    padding: 7px 14px;
+    cursor: pointer;
+}
+
+
+.bouton-fichiers:hover {
+    background-color: #f0f2f4;
+}
+
+
+.pieces-justificatives input[type="file"] {
+    display: none;
+}
+
+
+.pieces-justificatives input[type="file"]::file-selector-button:hover {
+    background-color: #f0f2f4;
+}
+
+.entete-pieces-justificatives {
+    display: grid;
+    grid-template-columns: 1fr 300px 300px;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #354352;
+}
+
+/* ================================
+   BOUTONS D'ACTIONS
+================================ */
+
+.boutons-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #d5dbe3;
+}
+
+.boutons-actions button {
+    flex: 1;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 16px;
+    border: 1px solid #c8d0da;
+    border-radius: 6px;
+    background-color: #eef1f5;
+    color: #354352;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.boutons-actions button:hover {
+    background-color: #dfe4e9;
+}
+
+.boutons-actions button:disabled {
+    background-color: #dfe3e7;
+    color: #9aa1a8;
+    border-color: #c8cdd2;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.note-obligatoire {
+    margin-top: -8px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    font-size: 13px;
+    color: #666;
+}
+
+.obligatoire {
+    color: #c62828;
+    font-weight: 700;
+}
+
+.bouton-action-info {
+    position: relative;
+    flex: 1;
+}
+
+.bouton-action-info button {
+    width: 100%;
+}
+
+.bouton-action-info::after {
+    content: "Veuillez remplir tous les champs obligatoires avant de poursuivre.";
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% - 8px);
+    transform: translateX(-50%);
+    background-color: #354352;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 1000;
+}
+
+.bouton-action-info:has(button:disabled):hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bouton-fichiers:has(+ input[type="file"]:disabled) {
+    cursor: not-allowed;
+    background-color: #dfe3e7;
+    color: #9aa1a8;
+    border-color: #c8cdd2;
+}
+
+.bouton-fichiers:has(+ input[type="file"]:disabled):hover {
+    cursor: not-allowed;
+    background-color: #dfe3e7;
+    color: #9aa1a8;
+    border-color: #c8cdd2;
+}
+
+.bouton-fichiers:has(+ input[type="file"]:disabled)::after {
+    content: "Veuillez sélectionner une date de départ avant d'ajouter des pièces justificatives.";
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+    background-color: #354352;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 1000;
+}
+
+.bouton-fichiers:has(+ input[type="file"]:disabled):hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================================
+   FENÊTRES DE CONFIRMATION
+========================================= */
+
+.fenetre-confirmation {
+    display: none;
+
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+/* =========================================
+   CONTENU DE LA FENÊTRE
+========================================= */
+
+.confirmation-contenu {
+    width: min(90%, 430px);
+
+    padding: 32px 30px 28px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.25);
+
+    text-align: center;
+
+    animation: apparitionConfirmation 0.18s ease-out;
+}
+
+
+@keyframes apparitionConfirmation {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================
+   TITRE
+========================================= */
+
+.confirmation-contenu h2 {
+
+    margin: 0 0 16px;
+
+    font-size: 22px;
+
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.confirmation-contenu p {
+
+    margin: 0 0 28px;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================
+   BOUTONS
+========================================= */
+
+.confirmation-boutons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+
+}
+
+
+/* Tous les boutons de la fenêtre */
+
+.confirmation-boutons button {
+
+    min-width: 115px;
+
+    padding: 11px 22px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+
+}
+
+
+/* Bouton Annuler */
+
+#boutonAnnulerConfirmation {
+
+    background: #e9ecef;
+
+    color: #333333;
+
+}
+
+
+#boutonAnnulerConfirmation:hover {
+
+    background: #dfe3e7;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.12);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* Bouton Envoyer */
+
+#boutonConfirmerEnvoi {
+
+    background: #2f6f95;
+
+    color: white;
+
+}
+
+
+#boutonConfirmerEnvoi:hover {
+
+    background: #285f80;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.18);
+
+    transform: translateY(-1px);
+
+}
+
+
+#boutonFermerSucces {
+
+    background: #2f6f95;
+
+    color: white;
+
+}
+
+
+#boutonFermerSucces:hover {
+
+    background: #285f80;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.18);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================
+   SYMBOLE DE SUCCÈS
+========================================= */
+
+.confirmation-succes {
+
+    width: 54px;
+
+    height: 54px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #2f8f5b;
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+}
