@@ -117,19 +117,19 @@ function verifierRepas(numero) {
         const retour = heureEnMinutes(heureRetour);
 
         dejeunerAdmissible =
-            depart < heureEnMinutes("07:30") &&
+            depart <= heureEnMinutes("07:30") &&
             retour > heureEnMinutes("09:00");
 
         dinerAdmissible =
-            depart < heureEnMinutes("12:00") &&
+            depart <= heureEnMinutes("12:00") &&
             retour > heureEnMinutes("12:30");
 
         souperAdmissible =
-            depart < heureEnMinutes("18:00") &&
+            depart <= heureEnMinutes("18:00") &&
             retour > heureEnMinutes("18:30");
 
         collationAdmissible =
-            depart < heureEnMinutes("22:00") &&
+            depart <= heureEnMinutes("22:00") &&
             retour > heureEnMinutes("22:00");
     }
 
